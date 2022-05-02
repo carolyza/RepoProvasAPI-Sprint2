@@ -6,8 +6,9 @@ import { testSchema } from "../schemas/testSchema.js";
 
 const testRouter = Router();
 
- testRouter.post("/app/adicionar-prova",   ensureAuthenticatedMiddleware,
+ testRouter.post("/app/adicionar-prova",   ensureAuthenticatedMiddleware, validateSchemaMiddleware(testSchema),
  testController.createTest);
 //testRouter.post("/app/adicionar-prova", ensureAuthenticatedMiddleware, testController.find);
+testRouter.get("/tests", ensureAuthenticatedMiddleware, testController.find);
 
 export default testRouter;

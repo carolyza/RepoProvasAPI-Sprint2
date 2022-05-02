@@ -4,6 +4,7 @@ async function findMany() {
   return prisma.discipline.findMany();
 }
 
+
 export default {
   findMany,
 };
