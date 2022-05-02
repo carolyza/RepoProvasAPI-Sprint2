@@ -13,9 +13,11 @@ async function find(req: Request, res: Response) {
 }
 
 async function createTest(req: Request, res: Response) {
-  const test = req.body;
+  const {name, pdfUrl, category,discipline, instructor} = req.body;
 
-  await testService.createTest(test);
+console.log("alface");
+
+  await testService.createTest(name, pdfUrl,category,discipline,instructor);
 
   res.sendStatus(201);
 }

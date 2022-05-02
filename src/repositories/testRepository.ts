@@ -1,7 +1,7 @@
 import { prisma } from "../database.js";
-import { CreateTestData } from "../services/testService.js";
+//import { CreateTestData } from "../services/testService.js";
 
-async function insert(createTestData: CreateTestData) {
+async function insert(createTestData:any) {
   return prisma.test.create({
     data: createTestData,
   });

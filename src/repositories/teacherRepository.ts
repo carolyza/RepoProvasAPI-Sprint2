@@ -31,8 +31,18 @@ async function getTeachersByDiscipline(disciplineId: number) {
 //   }
 // }
 
+async function findTeacherDiscipline(instructor: number, discipline: number) {
+  return prisma.teacherDiscipline.findFirst({
+    where: {
+      teacherId: instructor,
+      disciplineId: discipline,
+    },
+  });
+}
+
 
 export default {
   findMany,
-  getTeachersByDiscipline
+  getTeachersByDiscipline,
+  findTeacherDiscipline
 };

@@ -1,7 +1,8 @@
 import testRepository from "../repositories/testRepository.js";
-import { Test } from "@prisma/client";
+import teacherRepository from "../repositories/teacherRepository.js";
+//import { Test } from "@prisma/client";
 
-export type CreateTestData = Omit<Test, "id">;
+//export type CreateTestData = Omit<Test, "id">;
 
 interface Filter {
   groupBy: "disciplines" | "teachers";
@@ -15,9 +16,23 @@ async function find(filter: Filter) {
   }
 }
 
-async function createTest(createTestData: CreateTestData) {
+async function createTest(name: string,
+  pdfUrl: string,
+  category: number,
+  discipline: number,
+  instructor: number) {
+  
+  const { id: teacherDisciplineId } =
+  await teacherRepository.findTeacherDiscipline(instructor, discipline);
 
-  await testRepository.insert({ ...createTestData});
+  const data = {
+    name,
+    pdfUrl,
+    categoryId: category,
+    teacherDisciplineId,
+  };
+  console.log(data);
+  await testRepository.insert(data);
 }
 
 export default {
