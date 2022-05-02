@@ -8,7 +8,7 @@ const testRouter = Router();
 
  testRouter.post("/app/adicionar-prova",   ensureAuthenticatedMiddleware, validateSchemaMiddleware(testSchema),
  testController.createTest);
-//testRouter.post("/app/adicionar-prova", ensureAuthenticatedMiddleware, testController.find);
 testRouter.get("/tests", ensureAuthenticatedMiddleware, testController.find);
+testRouter.patch("/tests/:id", ensureAuthenticatedMiddleware, testController.countView);
 
 export default testRouter;

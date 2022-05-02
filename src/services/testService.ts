@@ -34,7 +34,12 @@ async function createTest(name: string,
   await testRepository.insert(data);
 }
 
+async function countView(id: number){
+await testRepository.countView(id);
+}
+
 export default {
   find,
-  createTest
+  createTest,
+  countView
 };
