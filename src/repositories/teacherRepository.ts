@@ -8,28 +8,17 @@ async function getTeachersByDiscipline(disciplineId: number) {
   return prisma.teacherDiscipline.findMany({
     select: {
       teacher: {
-        select:{
-        name: true,
-        id: true
-        }
+        select: {
+          name: true,
+          id: true,
+        },
       },
     },
     where: {
       disciplineId,
     },
-  }); 
+  });
 }
-
-// include: {
-//   teacherDisciplines: {
-//     include: {
-//       discipline: true
-//     },
-    
-//       disciplineId: parseInt(disciplineId)
-//     }
-//   }
-// }
 
 async function findTeacherDiscipline(instructor: number, discipline: number) {
   return prisma.teacherDiscipline.findFirst({
@@ -40,9 +29,8 @@ async function findTeacherDiscipline(instructor: number, discipline: number) {
   });
 }
 
-
 export default {
   findMany,
   getTeachersByDiscipline,
-  findTeacherDiscipline
+  findTeacherDiscipline,
 };

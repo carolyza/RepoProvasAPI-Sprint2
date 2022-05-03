@@ -1,8 +1,8 @@
 import testRepository from "../repositories/testRepository.js";
 import teacherRepository from "../repositories/teacherRepository.js";
-import {Test} from "@prisma/client";
+import { Test } from "@prisma/client";
 
-export type CreateTestData = Omit<Test, "id"| "views">;
+export type CreateTestData = Omit<Test, "id" | "views">;
 
 interface Filter {
   groupBy: "disciplines" | "teachers";
@@ -16,14 +16,15 @@ async function find(filter: Filter) {
   }
 }
 
-async function createTest(name: string,
+async function createTest(
+  name: string,
   pdfUrl: string,
   category: number,
   discipline: number,
-  instructor: number) {
-  
+  instructor: number
+) {
   const { id: teacherDisciplineId } =
-  await teacherRepository.findTeacherDiscipline(instructor, discipline);
+    await teacherRepository.findTeacherDiscipline(instructor, discipline);
 
   const data = {
     name,
@@ -31,16 +32,16 @@ async function createTest(name: string,
     categoryId: category,
     teacherDisciplineId,
   };
-  console.log(data);
+
   await testRepository.insert(data);
 }
 
-async function countView(id: number){
-await testRepository.countView(id);
+async function countView(id: number) {
+  await testRepository.countView(id);
 }
 
 export default {
   find,
   createTest,
-  countView
+  countView,
 };

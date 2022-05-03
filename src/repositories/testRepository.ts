@@ -1,7 +1,6 @@
 import { prisma } from "../database.js";
-//import { CreateTestData } from "../services/testService.js";
 
-async function insert(createTestData:any) {
+async function insert(createTestData: any) {
   return prisma.test.create({
     data: createTestData,
   });
@@ -42,22 +41,22 @@ async function getTestsByTeachers() {
   });
 }
 
-async function countView(id: number){
-return prisma.test.update({
-  where:{
-    id
-  },
-  data:{
-    views:{
-      increment:1
-    }
-  }
-});
+async function countView(id: number) {
+  return prisma.test.update({
+    where: {
+      id,
+    },
+    data: {
+      views: {
+        increment: 1,
+      },
+    },
+  });
 }
 
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
   insert,
-  countView
+  countView,
 };
