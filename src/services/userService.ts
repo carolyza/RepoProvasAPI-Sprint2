@@ -10,7 +10,7 @@ import {
 } from "../utils/errorUtils.js";
 dotenv.config();
 
-export type CreateUserData = Omit<User, "id">;
+export type CreateUserData = Omit<User, "id" >;
 
 async function signUp(createUserData: CreateUserData) {
   const existingUser = await userRepository.findByEmail(createUserData.email);

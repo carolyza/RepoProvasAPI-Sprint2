@@ -1,7 +1,8 @@
 import testRepository from "../repositories/testRepository.js";
 import teacherRepository from "../repositories/teacherRepository.js";
+import {Test} from "@prisma/client";
 
-//export type CreateTestData = Omit<Test, "id">;
+export type CreateTestData = Omit<Test, "id"| "views">;
 
 interface Filter {
   groupBy: "disciplines" | "teachers";
