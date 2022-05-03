@@ -31,16 +31,6 @@ describe("POST /sign-up", () => {
     signUpControllerTest.sameEmail
   );
 
-  // it(
-  //     "should return 422 when the email is invalid",
-  //     signUpControllerTest.invalidEmail
-  // );
-
-  // it(
-  //     "should return 422 when the password is invalid",
-  //     signUpControllerTest.invalidPassword
-  // );
-
   it("Should return 201 when create user", signUpControllerTest.createUser);
 });
 

@@ -1,14 +1,7 @@
-import supertest from "supertest";
-import app from "../../src/app";
 import { prisma } from "../../src/database.js";
 import { faker } from "@faker-js/faker";
-import teacherRepository from "../../src/repositories/teacherRepository.js";
 
 export function formatBodyCreateTeacher(disciplineId) {
-  // const categoryId = `P${faker.datatype.number(6)}`.toString();
-  // const teacherDisciplineId = `P${faker.datatype.number(6)}`.toString();
-  // const instructorId = `P${faker.datatype.number(6)}`.toString();
-
   return {
     discipline: disciplineId,
   };

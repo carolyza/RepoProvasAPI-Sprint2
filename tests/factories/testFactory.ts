@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker";
 import testRepository from "../../src/repositories/testRepository.js";
-import { CreateTestData } from "../../src/services/testService.js";
 import { prisma } from "../../src/database.js";
 
 export async function createTest() {
@@ -18,7 +17,6 @@ export async function createTest() {
 }
 
 export function formatBodyCreateTest(categoryId, instructorId, discipline) {
-  //const { name, pdfUrl, category, discipline, instructor } = req.body;
   return {
     name: faker.name.findName(),
     pdfUrl: faker.internet.url(),

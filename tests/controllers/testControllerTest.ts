@@ -4,18 +4,6 @@ import * as testFactory from "../factories/testFactory.js";
 import { prisma } from "../../src/database.js";
 import tokenFactory from "../factories/tokenFactory.js";
 
-// testRouter.post("/app/adicionar-prova",   ensureAuthenticatedMiddleware, validateSchemaMiddleware(testSchema),
-// testController.createTest);
-// testRouter.get("/tests", ensureAuthenticatedMiddleware, testController.find);
-// testRouter.patch("/tests/:id", ensureAuthenticatedMiddleware, testController.countView);
-
-// export async function createUser(){
-//     const body = testFactory.formatBodyCreateTest();
-//     const result = await supertest(app).post("/app/adicionar-prova").send(body);
-
-//       expect(result.status).toEqual(201);
-
-// }
 export async function createTest() {
   const login = await tokenFactory();
 
